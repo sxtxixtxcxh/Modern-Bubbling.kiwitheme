@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>scrollerKnobImage</key>
+	<string>scrollerKnob.png</string>
+	<key>scrollerSlotImage</key>
+	<string>scrollerSlot.png</string>
+	<key>scrollerBackgroundImage</key>
+	<string>scrollerBackground.tif</string>
+	<key>timelineInsetX</key>
+	<integer>0</integer>
+	<key>timelineInsetColor</key>
+	<string>#363636</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Modern Bubbling</string>
+	<key>CFBundleIdentifier</key>
+	<string>us.octidextro.kiwitheme.modernbubbling</string>
+	<key>title</key>
+	<string>Modern Bubbling</string>
+	<key>icon</key>
+	<string>icon.icns</string>
+	<key>timelineTemplate</key>
+	<string>timelineTemplate.html</string>
+	<key>tweetTemplate</key>
+	<string>tweetTemplate.html</string>
+	<key>css</key>
+	<string>style.css</string>
+	<key>description</key>
+	<string>description/index.html</string>
+</dict>
+</plist>

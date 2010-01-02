@@ -1,0 +1,263 @@
+body{
+	word-wrap: break-word;
+	margin:0;
+	padding: 0;
+	border: 0;
+  -webkit-user-select: none;
+	font-family: 'Lucida Grande', HelveticaNeue, "Helvetica Neue", Helvetica, sans-serif;
+	
+}
+#frame{
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+}
+.timeline{
+  padding:0;
+  margin:0;
+}
+
+.tweet {
+	margin: 20px 0 32px 0;
+	padding: 0 10px;
+	position: relative;
+	opacity: 0.7;
+	-webkit-transition: opacity 0.1s linear;
+}
+
+.tweet .sender {
+	position: absolute;
+	left: 10px;
+	bottom: 0;
+	width: 32px;
+	height: 32px;
+}
+
+.tweet .sender .icon {
+  -webkit-transition: -webkit-box-shadow 0.1s linear;
+  -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0);
+	-webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.8, rgba(255,255,255,0)), to(rgba(255,255,255,0.3)));
+}
+.tweet .sender .icon img{
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  overflow: hidden;
+}
+/*.tweet .sender:hover{
+  bottom: 1px;
+}
+.tweet .sender:hover .icon{
+  -webkit-box-reflect: below 6px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.8, rgba(255,255,255,0)), to(rgba(255,255,255,0.3)));
+}
+*/
+
+.tweet .sender:hover .icon img{	
+  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+}
+
+.tweet .name {
+	font-size: 9px;
+	position: absolute;
+	left: 58px;
+	bottom: -20px;
+	min-width: 32px;
+	text-align: left;
+	white-space: nowrap;
+	color: #6e6e6e;
+	-webkit-transition: color 0.1s linear;
+}
+
+.tweet .timestamp {
+	font-size: 9px;
+	position: absolute;
+	right: 20px;
+	bottom: -20px;
+	color: #c7c7c7;
+	white-space: nowrap;
+	-webkit-transition: color 0.1s linear;
+	
+}
+.tweet:hover .timestamp, 
+.tweet:hover .name,
+.tweet.selected .timestamp, 
+.tweet.selected .name{
+  color:#111;
+}
+
+.tweet .message{
+  padding: 0 9px 8px 9px;
+  margin-left: 38px;
+  -webkit-border-radius: 5px;
+  border: 1px solid #ccc;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+  -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.8, transparent), to(rgba(255,255,255,0.3)));
+	position: relative;
+	-webkit-box-shadow: inset 0px -4px 8px rgba(0,0,0, 0.05);
+}
+
+.tweet .message .body {
+  margin-top: 7px;
+	font-size: 11px;
+	line-height: 15px;
+	overflow: visible;
+}
+
+.tweet .recipient {
+  color: #333;
+  font-weight: bold;
+  font-size: 0.8em;
+	margin-top: 5px;
+}
+
+
+/* @end */
+.tweet.selected .message .reply,
+.tweet .message:hover .reply{
+  opacity:1;
+}
+.tweet .message .reply{
+  float:right;
+  margin-top: 7px;
+  opacity:0.2;
+  background: rgba(0,0,0,0);
+  -webkit-border-radius: 16px;
+  -webkit-transition-property: opacity, background;
+  -webkit-transition-duration: 0.1s, 0.5s;
+  
+  
+  
+}
+.tweet .message .reply:hover{
+  cursor:hand;
+  background: rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.2), inset 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+/*.tweet .recipient{display:none;}*/
+
+/* Styles links and Twiter @ mentions and # hash tags */
+
+
+
+
+.tweet .message .mention,
+.tweet .message .hashtag,
+.tweet .message .link{
+  background: rgba(0,0,0,0);
+  color: rgb(65, 131, 196);
+  -webkit-border-radius: 12px;
+  /*text-shadow: rgba(0, 0, 0, 0.05) 0px 1px 1px;*/
+  text-decoration: none;
+	font-weight: bold;
+	font-style: normal;
+	padding: 0 0.2em;
+	margin: 0 -0.2em;
+	-webkit-transition: background 0.2s linear;
+}
+
+.tweet .message .mention:hover,
+.tweet .message .hashtag:hover,
+.tweet .message .link:hover{
+  text-shadow: rgba(255, 255, 255, 0.2) 0px -1px 0px;
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2), inset 0px 1px 0px rgba(0, 0, 0, 0.1);
+  background: rgba(0,0,0,0.08);
+}
+
+.tweet.new .message{
+  border-color: #999;
+  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fed));*/
+}
+
+
+.tweet.mentionsMe .message{
+  -webkit-box-shadow: 0 0 12px rgba(100,100,255,0.5), inset 0px -8px 8px rgba(255,255,255, 0.4);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddf));
+}
+
+.tweet.selected .message{
+  border: 1px solid rgb(65, 131, 196) !important;
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0px -4px 8px rgba(0,0,0, 0.05);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+}
+.tweet.selected, .tweet.new, .tweet:hover{
+  opacity: 1;
+}
+
+/* @group .tweet.me */
+
+.tweet.me .sender {
+	position: absolute;
+	right: 10px;
+	left: auto;
+	width: 32px;
+	height: 32px;
+}
+
+.tweet.me .timestamp{
+  right: 58px;
+}
+
+.tweet.me .name{
+  left: 20px;
+}
+
+.tweet.me .recipient{
+  margin-left: 0;
+}
+.tweet.me .message {
+	margin-right: 38px;
+	margin-left: 0;
+}
+
+/* @end */
+
+
+
+
+
+.tweet.mute{ 
+  opacity: 0.3;
+}
+.tweet.selected.mute, .tweet.mute:hover{ 
+  opacity: 1;
+}
+
+.tweet.tag.red .message{
+  border: 1px solid #800;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#c88));
+}
+.tweet.tag.orange .message{
+  border: 1px solid #f80;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fc8));
+}
+.tweet.tag.yellow .message{
+  border: 1px solid #ee0;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ee0));
+}
+.tweet.tag.green .message{
+  border: 1px solid #080;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#8c8));
+}
+.tweet.tag.blue .message{
+  border: 1px solid #008;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#88c));
+}
+.tweet.tag.purple  .message{
+  border: 1px solid #808;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#c8c));
+}
+.tweet.tag.gray  .message{
+  border: 1px solid #333;
+  -webkit-box-shadow: inset 0px -8px 8px rgba(255,255,255, 0.6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#888));
+}
